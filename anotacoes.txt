@@ -1,0 +1,9 @@
+
+Dependências pra selecionar na hora de gerar o projeto no Spring Initializr
+- Lombok
+- Spring Boot DevTools
+- Spring Web
+- Spring Data JPA
+- H2 Database (só é usado pra testes)
+- MySQL Driver
+
