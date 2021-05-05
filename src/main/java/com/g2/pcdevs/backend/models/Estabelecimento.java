@@ -21,16 +21,13 @@ public class Estabelecimento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEstab;
 	
-	@Column
-	private Long foto;
-	
 	@Column(name = "categoria", nullable = false)
 	private String categoria;
 	
 	@Column(name = "subCat", nullable = false)
 	private String subCat;
 	
-	@Column(name = "reponsavel", nullable = false)
+	@Column(name = "responsavel", nullable = false)
 	private Integer responsavel;
 	
 	@Column(name = "status", nullable = false)
@@ -69,6 +66,5 @@ public class Estabelecimento {
 	private String fotoLogomarca;
 	@Column(name = "dataCriacao", nullable = false)
 	private LocalDateTime	dataCriacao;
-	
 		
 }
