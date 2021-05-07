@@ -1,7 +1,6 @@
 package com.g2.pcdevs.backend.models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -35,9 +35,13 @@ public class Servico {
 	private String iconServico;
 	
 	@Column(name = "dataCriacao", nullable = false)
-	private LocalDateTime	dataCriacao;
+	private LocalDateTime dataCriacao;
 	
 	@ManyToOne
 	@JoinColumn(name = "idSubCat", nullable = false)
 	private Categoria subcat;
+	
+	@ManyToMany(mappedBy = "servicos")
+	private List<SubCategoria> subCats;
+    // private Set<Categoria> categorias = new HashSet<>();
 }

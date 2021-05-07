@@ -1,8 +1,6 @@
 package com.g2.pcdevs.backend.models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +28,7 @@ public class Foto {
 	
 	@Column(name = "descrFoto", nullable = false)
 	private LocalDateTime	descrFoto;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idEstab", nullable = false)
 	private Estabelecimento estabelecimento;
