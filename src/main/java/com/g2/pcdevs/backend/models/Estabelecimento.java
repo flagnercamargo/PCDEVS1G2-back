@@ -78,4 +78,7 @@ public class Estabelecimento {
 	@JoinColumn(name = "idUser", nullable = false)
 	private User user;
 		
+	@ManyToOne
+	@JoinColumn(name = "idSubCat", nullable = false)
+	private SubCategoria subcat;
 }
