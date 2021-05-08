@@ -11,21 +11,6 @@ import com.g2.pcdevs.backend.models.Estabelecimento;
 @Service
 public class EstabelecimentoService {
 
-		@Bean
-		public PasswordEncoder passwordEncoder() {
-			return new BCryptPasswordEncoder();
-		}
-		
-		@Autowired
-		private PasswordEncoder passwordEncoder;
-		
-		@Transactional
-		public Startup salvar(Estabelecimento estabelecimento) {
-			String senha = estabelecimento.getSenha();
-			senha = passwordEncoder().encode(senha);
-			estabelecimento.setSenha(senha);
 			
-			return null;
-			
-		}
+		
 }

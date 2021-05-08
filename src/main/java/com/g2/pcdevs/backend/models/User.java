@@ -38,6 +38,6 @@ public class User {
 	@Column(name = "dataCriacao", nullable = false)
 	private LocalDateTime	dataCriacao;
 	
-	@OneToMany (mappedBy = "estabelecimento")
-	private List<User> users;
+	@OneToMany (mappedBy = "user")
+	private List<Estabelecimento> estabelecimentos;
 }

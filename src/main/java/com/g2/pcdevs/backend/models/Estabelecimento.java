@@ -76,6 +76,6 @@ public class Estabelecimento {
 	
 	@ManyToOne
 	@JoinColumn(name = "idUser", nullable = false)
-	private Estabelecimento estabelecimento;
+	private User user;
 		
 }

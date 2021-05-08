@@ -8,23 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.g2.pcdevs.backend.models.Categoria;
-import com.g2.pcdevs.backend.repository.CategoriaRepository;
+import com.g2.pcdevs.backend.models.SubCategoria;
+import com.g2.pcdevs.backend.repository.SubCategoriaRepository;
+
 
 @RestController
-@RequestMapping("/categorias")
-public class CategoriaController {
-	
+@RequestMapping("/subcategoria")
+public class SubCategoriaController {
+
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private SubCategoriaRepository subcategoriaRepository;
 	
 	@GetMapping
-	public ResponseEntity<List<Categoria>> index(){
+	public ResponseEntity<List<SubCategoria>>index(){
 		
-		List<Categoria> categorias = this.categoriaRepository.findAll();
+		List<SubCategoria> subcategorias = this.subcategoriaRepository.findAll();
 		
-		return ResponseEntity.ok(categorias);
+		return ResponseEntity.ok(subcategorias);
 	}
-
-}
-
+}	

@@ -41,7 +41,7 @@ public class Servico {
 	@JoinColumn(name = "idSubCat", nullable = false)
 	private Categoria subcat;
 	
-	@ManyToMany(mappedBy = "servicos")
-	private List<SubCategoria> subCats;
+	//@ManyToMany(mappedBy = "servicos")
+	//private List<SubCategoria> subCats;
     // private Set<Categoria> categorias = new HashSet<>();
 }
