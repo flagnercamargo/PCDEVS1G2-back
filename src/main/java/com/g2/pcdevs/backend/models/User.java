@@ -21,7 +21,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idUser;
+	private Long id_user;
 	
 	@Column(name = "nome", nullable = false)
 	private String nome;
@@ -32,11 +32,10 @@ public class User {
 	@Column(name = "senha", nullable = false)
 	private String senha;
 	
-	@Column(name = "telCel", nullable = false)
-	private String telCel;
+	@Column(name = "tel_cel", nullable = false)
+	private String tel_cel;
 	
-	@Column(name = "dataCriacao", nullable = false)
-	private LocalDateTime	dataCriacao;
+	private LocalDateTime data_criacao;
 	
 	@OneToMany (mappedBy = "user")
 	private List<Estabelecimento> estabelecimentos;

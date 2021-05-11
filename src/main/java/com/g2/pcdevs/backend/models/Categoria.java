@@ -22,16 +22,15 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCategoria;
+	private Long id_categoria;
 	
-	@Column(name = "nomeCat", nullable = false)
-	private String nomeCat;
+	@Column(name = "nome_cat", nullable = false)
+	private String nome_cat;
 	
-	@Column(name = "dataCriacao", nullable = false)
-	private LocalDateTime dataCriacao;
+	private LocalDateTime data_criacao;
 	
 	@OneToMany (mappedBy = "categoria")
-	private List<SubCategoria> subCats;
+	private List<SubCategoria> subcats;
 	
 	
 }

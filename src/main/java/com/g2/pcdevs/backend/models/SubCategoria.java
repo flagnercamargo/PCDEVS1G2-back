@@ -19,31 +19,30 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "subCat")
+@Table(name = "sub_cat")
 
 public class SubCategoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idSubCat;
+	private Long id_subcat;
 	
-	@Column(name = "nomeSubCat", nullable = false)
-	private String nomeSubCat;
+	@Column(name = "nome_sub_cat", nullable = false)
+	private String nome_subcat;
 	
-	@Column(name = "dataCriacao", nullable = false)
-	private LocalDateTime	dataCriacao;
+	private LocalDateTime data_criacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCategoria", nullable = false)
+	@JoinColumn(name = "id_categoria", nullable = false)
 	private Categoria categoria;
 		
-	@OneToMany (mappedBy = "subCat")
+	@OneToMany (mappedBy = "subcat")
 	private List<Estabelecimento> estabelecimentos;
 	
 	@ManyToMany
 	@JoinTable(
-	  name = "Servicos_SubCategoria", 
-	  joinColumns = @JoinColumn(name = "idSubCat"), 
-	  inverseJoinColumns = @JoinColumn(name = "idServico"))
+	  name = "Servicos_subcat", 
+	  joinColumns = @JoinColumn(name = "id_subcat"), 
+	  inverseJoinColumns = @JoinColumn(name = "id_servico"))
 	List<Servico> servicos;
 }

@@ -25,26 +25,24 @@ public class Servico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idServico;
+	private Long id_servico;
+	@Column(name = "nome_servico", nullable = false)
+	private String nome_servico;
 	
-	@Column(name = "nomeServico", nullable = false)
-	private String nomeServico;
+	@Column(name = "tipo_servico", nullable = false)
+	private String tipo_servico;
 	
-	@Column(name = "tipoServico", nullable = false)
-	private String tipoServico;
+	@Column(name = "icon_servico", nullable = false)
+	private String icon_servico;
 	
-	@Column(name = "iconServico", nullable = false)
-	private String iconServico;
-	
-	@Column(name = "dataCriacao", nullable = false)
-	private LocalDateTime dataCriacao;
+	private LocalDateTime data_criacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "idSubCat", nullable = false)
+	@JoinColumn(name = "id_sub_cat", nullable = false)
 	private Categoria subcat;
 	
 	@ManyToMany(mappedBy = "servicos")
-	@JsonIgnoreProperties()
-	private List<SubCategoria> subCats;
+	// @JsonIgnoreProperties("servicos")
+	private List<SubCategoria> subcats;
 	
 }

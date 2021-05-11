@@ -23,13 +23,13 @@ public class Estabelecimento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idEstab;
+	private Long id_estab;
 	
 	@Column(name = "categoria", nullable = false)
 	private String categoria;
 	
-	@Column(name = "subCat", nullable = false)
-	private String subCat;
+	@Column(name = "sub_cat", nullable = false)
+	private String sub_cat;
 	
 	@Column(name = "responsavel", nullable = false)
 	private Integer responsavel;
@@ -37,22 +37,22 @@ public class Estabelecimento {
 	@Column(name = "status", nullable = false)
 	private boolean status;
 	
-	@Column(name = "razaoSocial", nullable = false)
-	private String razaoSocial;
+	@Column(name = "razao_social", nullable = false)
+	private String razao_social;
 	
 	@Column(name = "cnpj", nullable = false )
 	private String cnpj;
 	
-	@Column(name = "nomeFantasia", nullable = false)
-	private String nomeFantasia;
+	@Column(name = "nome_fantasia", nullable = false)
+	private String nome_fantasia;
 	
 	private String email;
 	private String site;
-	private String telFixo;
-	private String telCel;
+	private String tel_fixo;
+	private String tel_cel;
 	
-	@Column(name = "descrNegocio", nullable = false)
-	private String descrNegocio;
+	@Column(name = "descr_negocio", nullable = false)
+	private String descr_negocio;
 	
 	@Column(name = "cep", nullable = false)
 	private String cep;
@@ -65,20 +65,20 @@ public class Estabelecimento {
 	private String mapa;
 	private String referencia;
 	
-	@Column(name = "horarioFunc", nullable = false)
-	private String horarioFunc;
-	private String fotoLogomarca;
-	@Column(name = "dataCriacao", nullable = false)
-	private LocalDateTime	dataCriacao;
+	@Column(name = "horario_func", nullable = false)
+	private String horario_func;
+	private String foto_logomarca;
+	
+	private LocalDateTime data_criacao;
 	
 	@OneToMany (mappedBy = "estabelecimento")
 	private List<Foto> fotos;
 	
 	@ManyToOne
-	@JoinColumn(name = "idUser", nullable = false)
+	@JoinColumn(name = "id_user", nullable = false)
 	private User user;
 		
 	@ManyToOne
-	@JoinColumn(name = "idSubCat", nullable = false)
+	@JoinColumn(name = "id_subcat", nullable = false)
 	private SubCategoria subcat;
 }

@@ -21,15 +21,14 @@ public class Foto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idFoto;
+	private Long id_foto;
 	
-	@Column(name = "urlFoto", nullable = false)
-	private String urlFoto;
+	@Column(name = "url_foto", nullable = false)
+	private String url_foto;
 	
-	@Column(name = "descrFoto", nullable = false)
-	private LocalDateTime	descrFoto;
+	private LocalDateTime data_criacao;
 
 	@ManyToOne
-	@JoinColumn(name = "idEstab", nullable = false)
+	@JoinColumn(name = "id_estab", nullable = false)
 	private Estabelecimento estabelecimento;
 }
