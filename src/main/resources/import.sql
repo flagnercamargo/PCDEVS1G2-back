@@ -1,7 +1,9 @@
-insert into user (id_user, nome, email, senha, tel_cel, data_criacao) values (null, 'Carlos', 'carlos@casa.com.br', '12345678', '11987654396', null);
+INSERT INTO `user` (`id_user`, `data_criacao`, `email`, `nome`, `senha`, `tel_cel`) VALUES (NULL, NULL, 'fernando@casa.com', 'Fernando', '12345678', '11999994545');
+INSERT INTO `user` (`id_user`, `data_criacao`, `email`, `nome`, `senha`, `tel_cel`) VALUES (NULL, NULL, 'carlos@casa.com', 'Carlos', '12345678', '11987654396');
+INSERT INTO `user` (`id_user`, `data_criacao`, `email`, `nome`, `senha`, `tel_cel`) VALUES (NULL, NULL, 'flagner@casa.com', 'Flagner', '12345678', '41987654396');
 
-insert into categoria (id_categoria, nome_cat, data_criacao) values (null, 'Gastronomia', null);
+INSERT INTO `categoria` (`id_categoria`, `data_criacao`, `nome_cat`) VALUES (NULL, NULL, 'Gastronomia');
 
-insert into sub_cat (id_sub_cat, nome_sub_cat, data_criacao) values (null, 'Bares/Lanches', null);
+INSERT INTO `sub_cat` (`id_subcat`, `data_criacao`, `nome_sub_cat`, `id_categoria`) VALUES (NULL, NULL, 'Bares/Lanches', '');
 
-insert into servico (id_servico, nome_servico, tipo_servico, icon_servico, data_criacao) values (null, 'ACESSIBILIDADE', 'Cadeirante', 'fa-wheelchair', null);
+INSERT INTO `servico` (`id_servico`, `data_criacao`, `icon_servico`, `nome_servico`, `tipo_servico`, `id_sub_cat`) VALUES (NULL, NULL, 'fa-wheelchair', 'Cadeirante', 'Acessibilidade', '');
