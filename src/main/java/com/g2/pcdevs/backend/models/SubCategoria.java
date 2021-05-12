@@ -15,11 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "sub_cat")
+@Table(name = "subcategoria")
 
 public class SubCategoria {
 
@@ -32,17 +34,13 @@ public class SubCategoria {
 	
 	private LocalDateTime data_criacao;
 	
+	@JsonIgnoreProperties("subcats")
 	@ManyToOne
 	@JoinColumn(name = "id_categoria", nullable = false)
 	private Categoria categoria;
 		
+	@JsonIgnoreProperties("subcat")
 	@OneToMany (mappedBy = "subcat")
 	private List<Estabelecimento> estabelecimentos;
-	
-	@ManyToMany
-	@JoinTable(
-	  name = "Servicos_subcat", 
-	  joinColumns = @JoinColumn(name = "id_subcat"), 
-	  inverseJoinColumns = @JoinColumn(name = "id_servico"))
-	List<Servico> servicos;
+		
 }

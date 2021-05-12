@@ -9,10 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -26,6 +28,7 @@ public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_servico;
+	
 	@Column(name = "nome_servico", nullable = false)
 	private String nome_servico;
 	
@@ -37,12 +40,12 @@ public class Servico {
 	
 	private LocalDateTime data_criacao;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_sub_cat", nullable = false)
-	private Categoria subcat;
-	
-	@ManyToMany(mappedBy = "servicos")
-	// @JsonIgnoreProperties("servicos")
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(
+	  name = "servico_subcategoria", 
+	  joinColumns = @JoinColumn(name = "id_servico"), 
+	  inverseJoinColumns = @JoinColumn(name = "id_subcategoria"))
 	private List<SubCategoria> subcats;
 	
 }

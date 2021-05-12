@@ -16,7 +16,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
-
 public class User {
 
 	@Id
@@ -37,6 +36,4 @@ public class User {
 	
 	private LocalDateTime data_criacao;
 	
-	@OneToMany (mappedBy = "user")
-	private List<Estabelecimento> estabelecimentos;
 }

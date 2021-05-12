@@ -4,14 +4,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -23,16 +28,11 @@ public class Estabelecimento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_estab;
+	private Long idEstab;
 	
-	@Column(name = "categoria", nullable = false)
-	private String categoria;
-	
-	@Column(name = "sub_cat", nullable = false)
-	private String sub_cat;
-	
-	@Column(name = "responsavel", nullable = false)
-	private Integer responsavel;
+	@ManyToOne
+	@JoinColumn(name = "responsavel", nullable = false)
+	private User responsavel;
 	
 	@Column(name = "status", nullable = false)
 	private boolean status;
@@ -54,19 +54,12 @@ public class Estabelecimento {
 	@Column(name = "descr_negocio", nullable = false)
 	private String descr_negocio;
 	
-	@Column(name = "cep", nullable = false)
-	private String cep;
-	private String logradouro;
-	private String numero;
-	private String complemento;
-	private String bairro;
-	private String cidade;
-	private String estado;
-	private String mapa;
-	private String referencia;
+	@Embedded
+	private Endereco endereco;
 	
 	@Column(name = "horario_func", nullable = false)
 	private String horario_func;
+	
 	private String foto_logomarca;
 	
 	private LocalDateTime data_criacao;
@@ -74,11 +67,15 @@ public class Estabelecimento {
 	@OneToMany (mappedBy = "estabelecimento")
 	private List<Foto> fotos;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_user", nullable = false)
-	private User user;
-		
+	@JsonIgnoreProperties("estabelecimentos")
 	@ManyToOne
 	@JoinColumn(name = "id_subcat", nullable = false)
 	private SubCategoria subcat;
+	
+	@ManyToMany
+	@JoinTable(
+	  name = "estabelecimento_servico", 
+	  joinColumns = @JoinColumn(name = "id_estabelecimento"), 
+	  inverseJoinColumns = @JoinColumn(name = "id_servico"))
+	List<Servico> servicos;
 }
