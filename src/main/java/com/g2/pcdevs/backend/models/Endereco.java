@@ -1,6 +1,6 @@
 package com.g2.pcdevs.backend.models;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import lombok.Data;
