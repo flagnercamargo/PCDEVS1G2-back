@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
+//import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,9 +35,10 @@ public class UserService {
 		User user = userMapper.converterInputDTOParaModel(userInput);
 		
 		LocalDateTime data_criacao = LocalDateTime.now();		
-		user.setDataCriacao( data_criacao );
+		user.setData_criacao( data_criacao );
 		
 		String nome = userInput.getNome();
+		user.setNome(nome);
 
 		user = repository.save( user );
 		
@@ -78,8 +79,8 @@ public class UserService {
 		
 		User c = userMapper.converterInputDTOParaModel(userInput);
 		
-		LocalDateTime dataCriacao = LocalDateTime.now();		
-		c.setDataCriacao( dataCriacao );		
+		LocalDateTime data_criacao = LocalDateTime.now();		
+		c.setData_criacao( data_criacao );		
 		String nome = userInput.getNome();		 
 		c.setNome(nome);
 		

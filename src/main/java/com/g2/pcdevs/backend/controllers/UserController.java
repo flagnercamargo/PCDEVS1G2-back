@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.g2.pcdevs.backend.dto.input.UserInputDTO;
 import com.g2.pcdevs.backend.dto.output.UserOutputDTO;
 import com.g2.pcdevs.backend.models.User;
-import com.g2.pcdevs.backend.repository.UserRepository;
+//import com.g2.pcdevs.backend.repository.UserRepository;
 import com.g2.pcdevs.backend.service.UserService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired
@@ -61,7 +61,7 @@ public class UserController {
 	}
 
 	@PutMapping("/{id_user}")
-	public ResponseEntity<UserOutputDTO> atualizar(@RequestBody UserInputDTO userInput, @PathVariable Long id_ser) {
+	public ResponseEntity<UserOutputDTO> atualizar(@RequestBody UserInputDTO userInput, @PathVariable Long id_user) {
 
 		Optional<User> cli = service.buscarPorId( id_user );
 		
