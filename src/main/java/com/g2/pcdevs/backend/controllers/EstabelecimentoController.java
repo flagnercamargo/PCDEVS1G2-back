@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.g2.pcdevs.backend.models.Estabelecimento;
 import com.g2.pcdevs.backend.repository.EstabelecimentoRepository;
 
-import br.com.cliente.models.Cliente;
 
 @CrossOrigin
 @RestController
@@ -50,6 +49,7 @@ public class EstabelecimentoController {
 		return ResponseEntity.ok(estabelecimentoCadastrado);
 	}
 	
+	/*
 	@PutMapping
 	public ResponseEntity<Estabelecimento> atualizar(@RequestBody Estabelecimento estabelecimento) {
 		
@@ -58,7 +58,9 @@ public class EstabelecimentoController {
 		if( atualizarEstabelecimento.isPresent() ) {
 			BeanUtils.copyProperties(Estabelecimento, atualizarEstabelecimento.get(), "id"); 
 		}
+		
 	
   }
-	
+  */
 }	
+	

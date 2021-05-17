@@ -48,6 +48,7 @@ public class FotoController {
 		return ResponseEntity.ok(fotoCadastrada);
 	}
 
+	/*
 	@PutMapping
 	public ResponseEntity<Foto> atualizar(@RequestBody Foto foto) {
 		
@@ -62,7 +63,8 @@ public class FotoController {
 			
 		Optional<Foto> foto =  service.buscarPorId( id );
 			
-		if(foto.isPresent()) {
+		if(foto.isPresent()) {			
+		}
 			service.excluir(id);
 			return 	ResponseEntity.noContent().build();		
 		}
@@ -70,5 +72,5 @@ public class FotoController {
 		return ResponseEntity.notFound().build();
 			
 	}	
-	
+	*/
 	}
