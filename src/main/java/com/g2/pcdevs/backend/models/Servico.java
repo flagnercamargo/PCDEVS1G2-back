@@ -11,11 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -43,9 +42,9 @@ public class Servico {
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
-	  name = "servico_subcategoria", 
-	  joinColumns = @JoinColumn(name = "id_servico"), 
-	  inverseJoinColumns = @JoinColumn(name = "id_subcategoria"))
+	name = "servico_subcategoria", 
+	joinColumns = @JoinColumn(name = "id_servico"), 
+	inverseJoinColumns = @JoinColumn(name = "id_subcategoria"))
 	private List<SubCategoria> subcats;
 	
 }
