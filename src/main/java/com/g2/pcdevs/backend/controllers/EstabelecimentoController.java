@@ -1,17 +1,26 @@
 package com.g2.pcdevs.backend.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.g2.pcdevs.backend.models.Estabelecimento;
 import com.g2.pcdevs.backend.repository.EstabelecimentoRepository;
 
+import br.com.cliente.models.Cliente;
+
+@CrossOrigin
 @RestController
 @RequestMapping("/estabelecimentos")
 public class EstabelecimentoController {
@@ -27,7 +36,7 @@ public class EstabelecimentoController {
 		return ResponseEntity.ok(estabelecimentos);
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Estabelecimento> getById(@PathVariable Long id){
 		
 		Estabelecimento estabelecimento = this.estabelecimentoRepository.findById(id).get();
@@ -35,5 +44,21 @@ public class EstabelecimentoController {
 		return ResponseEntity.ok(estabelecimento);
 	}
 
-
-}
+	@PostMapping
+	public ResponseEntity<Estabelecimento> salvar(@RequestBody Estabelecimento estabelecimento){
+		Estabelecimento estabelecimentoCadastrado = this.estabelecimentoRepository.save(estabelecimento);
+		return ResponseEntity.ok(estabelecimentoCadastrado);
+	}
+	
+	@PutMapping
+	public ResponseEntity<Estabelecimento> atualizar(@RequestBody Estabelecimento estabelecimento) {
+		
+		Optional<Estabelecimento> atualizarEstabelecimento = service.buscarPorId( estabelecimento.getId() );
+		
+		if( atualizarEstabelecimento.isPresent() ) {
+			BeanUtils.copyProperties(Estabelecimento, atualizarEstabelecimento.get(), "id"); 
+		}
+	
+  }
+	
+}	

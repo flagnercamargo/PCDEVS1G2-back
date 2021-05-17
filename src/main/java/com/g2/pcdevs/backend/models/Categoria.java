@@ -25,7 +25,7 @@ public class Categoria {
 	private Long id_categoria;
 	
 	@Column(name = "nome_cat", nullable = false)
-	private String nome_cat;
+	private String nome;
 	
 	private LocalDateTime data_criacao;
 	

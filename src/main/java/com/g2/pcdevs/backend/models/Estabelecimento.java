@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -23,42 +25,41 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "estabelecimento")
-
 public class Estabelecimento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEstab;
-	
+/*	
 	@ManyToOne
-	@JoinColumn(name = "responsavel", nullable = false)
+	@JoinColumn(name = "responsavel" )
 	private User responsavel;
-	
-	@Column(name = "status", nullable = false)
+*/	
+	@Column(name = "status" )
 	private boolean status;
 	
-	@Column(name = "razao_social", nullable = false)
-	private String razao_social;
+	@Column(name = "razao_social")
+	private String razaoSocial;
 	
-	@Column(name = "cnpj", nullable = false )
+	@Column(name = "cnpj"  )
 	private String cnpj;
 	
-	@Column(name = "nome_fantasia", nullable = false)
-	private String nome_fantasia;
+	@Column(name = "nome_fantasia" )
+	private String nomeFantasia;
 	
 	private String email;
 	private String site;
-	private String tel_fixo;
-	private String tel_cel;
+	private String telefoneFixo;
+	private String telefoneCel;
 	
-	@Column(name = "descr_negocio", nullable = false)
-	private String descr_negocio;
+	@Column(name = "descr_negocio")
+	private String negocio;
 	
 	@Embedded
 	private Endereco endereco;
 	
-	@Column(name = "horario_func", nullable = false)
-	private String horario_func;
+	@Column(name = "horario_func" )
+	private String horario;
 	
 	private String foto_logomarca;
 	
@@ -69,7 +70,7 @@ public class Estabelecimento {
 	
 	@JsonIgnoreProperties("estabelecimentos")
 	@ManyToOne
-	@JoinColumn(name = "id_subcat", nullable = false)
+	@JoinColumn(name = "id_subcat" )
 	private SubCategoria subcat;
 	
 	@ManyToMany
