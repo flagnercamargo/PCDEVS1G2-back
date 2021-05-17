@@ -73,6 +73,10 @@ public class Estabelecimento {
 	@JoinColumn(name = "id_subcat" )
 	private SubCategoria subcat;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_user" )
+	private User responsavel;
+	
 	@ManyToMany
 	@JoinTable(
 	  name = "estabelecimento_servico", 
