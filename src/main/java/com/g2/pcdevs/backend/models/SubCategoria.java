@@ -30,7 +30,7 @@ public class SubCategoria {
 	private Long id_subcat;
 	
 	@Column(name = "nome_sub_cat", nullable = false)
-	private String nome_subcat;
+	private String nome;
 	
 	private LocalDateTime data_criacao;
 	
@@ -39,7 +39,7 @@ public class SubCategoria {
 	@JoinColumn(name = "id_categoria", nullable = false)
 	private Categoria categoria;
 		
-	@JsonIgnoreProperties("subcat")
+	@JsonIgnoreProperties({"estabelecimentos","fotos","subcat","endereco","responsavel"})
 	@OneToMany (mappedBy = "subcat")
 	private List<Estabelecimento> estabelecimentos;
 		

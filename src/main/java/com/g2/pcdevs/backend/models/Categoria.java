@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
@@ -29,6 +31,7 @@ public class Categoria {
 	
 	private LocalDateTime data_criacao;
 	
+	@JsonIgnoreProperties({"categoria","estabelecimentos"})
 	@OneToMany (mappedBy = "categoria")
 	private List<SubCategoria> subcats;
 	
