@@ -16,8 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -65,19 +64,23 @@ public class Estabelecimento {
 	
 	private LocalDateTime data_criacao;
 	
+	@JsonIgnore
 	@JsonIgnoreProperties("estabelecimentos")
 	@OneToMany (mappedBy = "estabelecimento")
 	private List<Foto> fotos;
 	
+	@JsonIgnore
 	@JsonIgnoreProperties("estabelecimentos")
 	@ManyToOne
 	@JoinColumn(name = "id_subcat" )
 	private SubCategoria subcat;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_user" )
 	private User responsavel;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
 	  name = "estabelecimento_servico", 

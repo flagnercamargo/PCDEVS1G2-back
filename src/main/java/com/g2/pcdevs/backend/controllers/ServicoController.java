@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.g2.pcdevs.backend.models.Estabelecimento;
-import com.g2.pcdevs.backend.models.Foto;
 import com.g2.pcdevs.backend.models.Servico;
 import com.g2.pcdevs.backend.repository.ServicoRepository;
 
