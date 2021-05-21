@@ -64,8 +64,7 @@ public class Estabelecimento {
 	
 	private LocalDateTime data_criacao;
 	
-	@JsonIgnore
-	@JsonIgnoreProperties("estabelecimentos")
+	@JsonIgnoreProperties("estabelecimento")
 	@OneToMany (mappedBy = "estabelecimento")
 	private List<Foto> fotos;
 	
