@@ -31,7 +31,7 @@ public class Categoria {
 	
 	private LocalDateTime data_criacao;
 	
-	@JsonIgnoreProperties({"categoria","estabelecimentos"})
+	@JsonIgnoreProperties({"categoria"})
 	@OneToMany (mappedBy = "categoria")
 	private List<SubCategoria> subcats;
 	

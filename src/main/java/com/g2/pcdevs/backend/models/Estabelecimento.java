@@ -68,7 +68,7 @@ public class Estabelecimento {
 	@OneToMany (mappedBy = "estabelecimento")
 	private List<Foto> fotos;
 	
-	@JsonIgnore
+
 	@JsonIgnoreProperties("estabelecimentos")
 	@ManyToOne
 	@JoinColumn(name = "id_subcat" )
